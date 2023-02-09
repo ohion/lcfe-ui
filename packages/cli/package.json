@@ -1,0 +1,57 @@
+{
+  "name": "lcfeui-cli",
+  "version": "1.0.0",
+  "description": "lcfe-ui-cli",
+  "keywords": [
+    "cli"
+  ],
+  "author": "cjz",
+  "license": "MIT",
+  "main": "lib/lcfeui-cli.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib",
+    "types"
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+    "dev": "esbuild --bundle ./src/bin.ts --format=cjs --platform=node --outfile=./lib/bin.js --external:esbuild --minify-whitespace --watch",
+    "build": "pnpm generate:theme && node --max-old-space-size=4096 node_modules/vitepress/bin/vitepress.js build docs && cp public/* docs/.vitepress/dist/assets && cp docs/assets/* docs/.vitepress/dist/assets",
+    "build:lib": "pnpm --filter vue3-lcfeui predev -- prod && pnpm build:components && pnpm changelog && pnpm release",
+    "build:components": "node ./index.js build",
+    "generate:theme": "node ./index.js generate:theme",
+    "generate:dts": "node ./index.js generate:dts",
+    "release": "node ./index.js release",
+    "cli": "node ./index.js create",
+    "cli:create": "node ./index.js create -t component",
+    "prebuild": "node ./index.js create -t lcfeui --ignore-parse-error",
+    "changelog": "conventional-changelog -k '../lcfe-ui/package.json' -p angular -i CHANGELOG.md -s"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@babel/parser": "^7.17.9",
+    "@babel/traverse": "^7.17.9",
+    "@vitejs/plugin-vue": "^2.2.0",
+    "@vitejs/plugin-vue-jsx": "^1.3.7",
+    "chalk": "^4.1.2",
+    "commander": "^9.0.0",
+    "esbuild": "^0.13.15",
+    "esbuild-register": "^3.3.2",
+    "fs-extra": "^10.0.1",
+    "inquirer": "^8.2.0",
+    "kolorist": "^1.5.1",
+    "ora": "^5.4.1",
+    "rimraf": "^3.0.2",
+    "shelljs": "^0.8.5",
+    "vite": "^2.8.0",
+    "conventional-changelog-cli": "^2.2.2",
+    "sass": "^1.53.0"
+  }
+}

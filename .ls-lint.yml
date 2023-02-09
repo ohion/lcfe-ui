@@ -1,0 +1,20 @@
+ls:
+  packages/*:
+    .dir: kebab-case | regex:__[a-z0-9]+__
+    .scss: kebab-case # 对所有 scss 文件使用 kebab-case 形式
+    .vue: kebab-case | pascalcase  # vue 组件推荐 大写字母开头 额外配置 pascalcase
+    .js: kebab-case
+    .ts: kebab-case
+    .tsx: kebab-case
+    .route.ts: kebab-case
+    .type.ts: kebab-case
+    .test.ts: kebab-case
+    .config.ts: kebab-case
+
+ignore:
+  # lcfe-ui
+  - packages/lcfe-ui/node_modules
+  - packages/lcfe-ui/docs
+  - packages/lcfe-ui/ui/theme
+  - packages/cli/node_modules
+  - packages/build
