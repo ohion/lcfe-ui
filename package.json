@@ -7,10 +7,11 @@
     "prepare": "husky install",
     "precommit": "lint-staged",
     "dev": "pnpm --filter vue3-lcfeui dev",
-    "build": "pnpm --filter vue3-lcfeui docs:build && pnpm changelog",
+    "build": "pnpm prebuild && pnpm --filter vue3-lcfeui docs:build && pnpm changelog",
     "build:lib": "pnpm --filter vue3-lcfeui build:lib --reporter default",
     "test": "pnpm scripts run tests.test",
     "cli": "pnpm --filter lcfeui-cli cli",
+    "prebuild": "pnpm --filter lcfeui-cli cli -t lcfeui",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "devDependencies": {
