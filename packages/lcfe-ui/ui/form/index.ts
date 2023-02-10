@@ -1,5 +1,5 @@
 import type { App } from 'vue'
-import Form from './src/form'
+import Form from './src/form.vue'
 
 Form.install = function(app: App): void {
   app.component(Form.name, Form)

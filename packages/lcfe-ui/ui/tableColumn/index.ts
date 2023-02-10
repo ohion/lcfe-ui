@@ -10,7 +10,7 @@ export { TableColumn };
 
 // 内部统一注册
 export default {
-  title: 'table',
+  title: 'tableColumn',
   category: '数据展示',
   status: '100%',
   install(app: App): void {

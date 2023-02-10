@@ -13,19 +13,13 @@
 
 ```vue
 <template>
-  <div>{{ msg }}</div>
+  <div>form doc</div>
 </template>
 
-<script>
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  setup() {
-    return {
-      msg: 'Form 表单 组件文档示例'
-    }
-  }
-})
+<script >
+export default {
+  name: 'formBox'
+};
 </script>
 
 <style>

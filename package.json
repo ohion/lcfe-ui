@@ -9,7 +9,8 @@
     "dev": "pnpm --filter vue3-lcfeui dev",
     "build": "pnpm --filter vue3-lcfeui build",
     "build:lib": "pnpm --filter vue3-lcfeui build:lib --reporter default",
-    "test": "pnpm scripts run tests.test"
+    "test": "pnpm scripts run tests.test",
+    "cli": "pnpm --filter lcfeui-cli cli"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",

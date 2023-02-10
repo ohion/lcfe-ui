@@ -4,7 +4,8 @@
 3、组件的测试 ui/组件名/test
 
 ### 新增组件
-目录切换到packages/cli，运行 pnpm cli 详情查看packages/cli/README.md
+1、项目根目录下运行 pnpm cli 选择component，会自动生成新增组件的目录和docs
+2、项目根目录下运行 pnpm cli 选择ui，会自动生成sidebar.ts
 
 ### 本地开发
 ```sh
