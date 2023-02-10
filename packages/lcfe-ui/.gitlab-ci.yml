@@ -1,0 +1,12 @@
+image: node:16
+pages:
+  cache:
+    paths:
+      - node_modules/
+  script:
+    - pnpm docs:build
+  artifacts:
+    paths:
+      - public
+  only:
+    - master

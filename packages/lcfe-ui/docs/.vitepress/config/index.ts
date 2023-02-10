@@ -3,7 +3,8 @@ import markdown from './markdown';
 import sidebar from './sidebar';
 
 export default {
-    base:'/lcfe-ui/',
+  base:'/lcfe-ui/',
+  outDir:'../public',
   lang: 'zh-CN',
   title: 'lcfe-ui',
   description: 'lcfe 组件库',
