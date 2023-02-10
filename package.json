@@ -19,6 +19,7 @@
     "all-contributors-cli": "^6.20.0",
     "better-scripts": "^0.1.1",
     "commitizen": "^4.3.0",
+    "conventional-changelog-cli": "^2.2.2",
     "cz-conventional-changelog": "^3.3.0",
     "esbuild-register": "^2.6.0",
     "eslint": "^7.28.0",
