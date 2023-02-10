@@ -38,7 +38,7 @@ jobs:
         run: pnpm i # 下载依赖
 
       - name: Build docs
-        run: pnpm docs:build # 执行打包命令
+        run: pnpm build # 执行打包命令
 
       # 部署 vitepress
       - name: Deploy-docs
