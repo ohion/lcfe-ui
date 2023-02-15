@@ -2,7 +2,7 @@
 import './base-dialog.scss'
 import { ref, watch, computed, nextTick } from 'vue'
 import { Close } from '@element-plus/icons-vue'
-import { ElDialog } from 'element-plus';
+import { ElDialog ,ElIcon} from 'element-plus';
 interface BaseDialogProps {
   modelValue: boolean
   zIndex?: number
