@@ -1,6 +1,5 @@
 import type { App } from 'vue';
 import Card from './src/card.vue';
-console.log(Card.name)
 // 作为插件引入
 Card.install = function (app: App): void {
   app.component('lc-card', Card);

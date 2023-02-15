@@ -5,7 +5,7 @@ exports.VERSION = version;
 exports.isProd = process.env.NODE_ENV === "production";
 exports.CWD = process.cwd();
 exports.UI_DIR = resolve(this.CWD, "../lcfe-ui/ui");
-exports.UI_NAMESPACE = "c";
+exports.UI_NAMESPACE = "lc";
 exports.CSS_CLASS_PREFIX = "lc";
 exports.COMPONENT_NAME_PREFIX = "lc-";
 exports.TESTS_DIR_NAME = "test";

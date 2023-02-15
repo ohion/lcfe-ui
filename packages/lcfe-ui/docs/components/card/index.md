@@ -32,11 +32,6 @@
 
 </template>
 
-<script>
-export default {
-  name: 'cardBox'
-};
-</script>
 
 <style lang="scss" scoped>
 </style>
@@ -44,9 +39,9 @@ export default {
 
 :::
 
-## c-card
+## lc-card
 
-c-card 参数
+lc-card 参数
 
 | 参数 | 类型 | 默认 | 说明 |
 | ---- | ---- | ---- | ---- |

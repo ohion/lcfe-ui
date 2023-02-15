@@ -1,14 +1,13 @@
-
-const { UI_NAMESPACE, CSS_CLASS_PREFIX,COMPONENT_NAME_PREFIX } = require('../shared/constant');
-const { camelCase ,kebabCase} = require('lodash');
-const { bigCamelCase } = require('../shared/utils');
+const {
+  UI_NAMESPACE,
+  CSS_CLASS_PREFIX,
+  COMPONENT_NAME_PREFIX,
+} = require("../shared/constant");
+const { camelCase, kebabCase } = require("lodash");
+const { bigCamelCase } = require("../shared/utils");
 
 // 创建组件模板
-exports.createComponentTemplate = ({
-  styleName,
-  componentName,
-  typesName
-}) => `
+exports.createComponentTemplate = ({ styleName, componentName, typesName }) => `
 <template>
   <div class="${COMPONENT_NAME_PREFIX + kebabCase(componentName)}">
   </div>
@@ -50,7 +49,7 @@ export default {
 exports.createServiceTemplate = ({
   componentName,
   typesName,
-  serviceName
+  serviceName,
 }) => `\
 import { ${bigCamelCase(componentName)}Props } from './${typesName}'
 
@@ -77,7 +76,7 @@ exports.createIndexTemplate = ({
   hasService,
   componentName,
   directiveName,
-  serviceName
+  serviceName,
 }) => {
   const importComponentStr = `\nimport ${bigCamelCase(
     componentName
@@ -89,7 +88,9 @@ exports.createIndexTemplate = ({
     serviceName
   )} from './src/${serviceName}'`;
 
-  const installComponentStr = `app.component('${ COMPONENT_NAME_PREFIX + kebabCase(componentName)}', ${bigCamelCase(componentName)});`;
+  const installComponentStr = `app.component('${
+    COMPONENT_NAME_PREFIX + kebabCase(componentName)
+  }', ${bigCamelCase(componentName)});`;
 
   const installDirectiveStr = `\n    app.directive('${bigCamelCase(
     componentName
@@ -98,7 +99,7 @@ exports.createIndexTemplate = ({
     serviceName
   )} = ${bigCamelCase(serviceName)}`;
 
-  const getPartStr = (state, str) => (state ? str : '');
+  const getPartStr = (state, str) => (state ? str : "");
 
   const importStr =
     getPartStr(hasComponent, importComponentStr) +
@@ -115,19 +116,19 @@ ${importStr}
 ${
   hasComponent
     ? `\n${bigCamelCase(componentName)}.install = function(app: App): void {
-  app.component('${ COMPONENT_NAME_PREFIX + kebabCase(componentName)}', ${bigCamelCase(
-        componentName
-      )})
+  app.component('${
+    COMPONENT_NAME_PREFIX + kebabCase(componentName)
+  }', ${bigCamelCase(componentName)})
 }\n`
-    : ''
+    : ""
 }
 export { ${[
     hasComponent ? bigCamelCase(componentName) : null,
     hasDirective ? bigCamelCase(directiveName) : null,
-    hasService ? bigCamelCase(serviceName) : null
+    hasService ? bigCamelCase(serviceName) : null,
   ]
     .filter((p) => p !== null)
-    .join(', ')} }
+    .join(", ")} }
 
 export default {
   title: '${bigCamelCase(componentName)} ${title}',
@@ -147,7 +148,7 @@ exports.createTestsTemplate = ({
   serviceName,
   hasComponent,
   hasDirective,
-  hasService
+  hasService,
 }) => `\
 import { shallowMount } from '@vue/test-utils';
 import { expect, test, it } from 'vitest';
@@ -156,10 +157,10 @@ import { useNamespace } from '../../shared/hooks/use-namespace';
 import { ${[
   hasComponent ? bigCamelCase(componentName) : null,
   hasDirective ? bigCamelCase(directiveName) : null,
-  hasService ? bigCamelCase(serviceName) : null
+  hasService ? bigCamelCase(serviceName) : null,
 ]
   .filter((p) => p !== null)
-  .join(', ')} } from '../index';
+  .join(", ")} } from '../index';
 
 test('${componentName} test', () => {
   const wrapper = shallowMount(${bigCamelCase(componentName)}, {
