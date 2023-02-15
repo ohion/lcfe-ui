@@ -7,6 +7,7 @@ exports.CWD = process.cwd();
 exports.UI_DIR = resolve(this.CWD, "../lcfe-ui/ui");
 exports.UI_NAMESPACE = "c";
 exports.CSS_CLASS_PREFIX = "lc";
+exports.COMPONENT_NAME_PREFIX = "lc-";
 exports.TESTS_DIR_NAME = "test";
 exports.INDEX_FILE_NAME = "index.ts";
 exports.DOCS_FILE_NAME = "index.md";

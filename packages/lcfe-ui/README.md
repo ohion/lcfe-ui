@@ -29,3 +29,7 @@ pnpm docs:serve
 
 #### 生成 changelog 文件
 #### docs 发布到 gitlab
+
+### 组件发布到 npm
+1. 先打包，在根目录或者packages/cli 执行 pnpm build:lib
+2. packages/lcfe-ui/build 下执行 npm publish

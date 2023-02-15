@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@192.168.10.166:fe/lcfe-ui.git"
+  },
   "scripts": {
     "prepare": "husky install",
     "precommit": "lint-staged",
-    "dev": "pnpm --filter vue3-lcfeui dev",
-    "build": "pnpm prebuild && pnpm --filter vue3-lcfeui docs:build && pnpm changelog",
-    "build:lib": "pnpm --filter vue3-lcfeui build:lib --reporter default",
+    "dev": "pnpm --filter @lanchenfe/lcfeui dev",
+    "build": "pnpm prebuild && pnpm --filter @lanchenfe/lcfeui docs:build && pnpm changelog",
+    "build:lib": "pnpm --filter lcfeui-cli build:lib",
     "test": "pnpm scripts run tests.test",
     "cli": "pnpm --filter lcfeui-cli cli",
     "prebuild": "pnpm --filter lcfeui-cli cli -t lcfeui",
@@ -40,7 +44,10 @@
     "packages/**/{*.vue,*.js,*.ts,*.jsx,*.tsx}": "eslint --fix",
     "packages/**/{*.scss,*.css}": "stylelint --fix"
   },
-  "keywords": [],
+  "keywords": [
+    "ui",
+    "lanchen-fe"
+  ],
   "author": "",
   "license": "ISC"
 }

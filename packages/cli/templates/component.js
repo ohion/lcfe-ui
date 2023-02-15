@@ -1,5 +1,6 @@
-const { UI_NAMESPACE, CSS_CLASS_PREFIX } = require('../shared/constant');
-const { camelCase } = require('lodash');
+
+const { UI_NAMESPACE, CSS_CLASS_PREFIX,COMPONENT_NAME_PREFIX } = require('../shared/constant');
+const { camelCase ,kebabCase} = require('lodash');
 const { bigCamelCase } = require('../shared/utils');
 
 // 创建组件模板
@@ -7,23 +8,14 @@ exports.createComponentTemplate = ({
   styleName,
   componentName,
   typesName
-}) => `\
-import { defineComponent } from 'vue'
-import { ${camelCase(componentName)}Props, ${bigCamelCase(
-  componentName
-)}Props } from './${typesName}'
+}) => `
+<template>
+  <div class="${COMPONENT_NAME_PREFIX + kebabCase(componentName)}">
+  </div>
+</template>
+<script lang="ts" setup>
 import './${styleName}.scss'
-
-export default defineComponent({
-  name: '${bigCamelCase(UI_NAMESPACE)}${bigCamelCase(componentName)}',
-  props: ${camelCase(componentName)}Props,
-  emits: [],
-  setup(props: ${bigCamelCase(componentName)}Props, ctx) {
-    return () => {
-      return (<div class="${CSS_CLASS_PREFIX}-${componentName}"></div>)
-    }
-  }
-})
+</script>
 `;
 
 // 创建类型声明模板
@@ -89,7 +81,7 @@ exports.createIndexTemplate = ({
 }) => {
   const importComponentStr = `\nimport ${bigCamelCase(
     componentName
-  )} from './src/${componentName}'`;
+  )} from './src/${componentName}.vue'`;
   const importDirectiveStr = `\nimport ${bigCamelCase(
     directiveName
   )} from './src/${directiveName}'`;
@@ -97,9 +89,7 @@ exports.createIndexTemplate = ({
     serviceName
   )} from './src/${serviceName}'`;
 
-  const installComponentStr = `app.component(${bigCamelCase(
-    componentName
-  )}.name, ${bigCamelCase(componentName)});`;
+  const installComponentStr = `app.component('${ COMPONENT_NAME_PREFIX + kebabCase(componentName)}', ${bigCamelCase(componentName)});`;
 
   const installDirectiveStr = `\n    app.directive('${bigCamelCase(
     componentName
@@ -125,7 +115,7 @@ ${importStr}
 ${
   hasComponent
     ? `\n${bigCamelCase(componentName)}.install = function(app: App): void {
-  app.component(${bigCamelCase(componentName)}.name, ${bigCamelCase(
+  app.component('${ COMPONENT_NAME_PREFIX + kebabCase(componentName)}', ${bigCamelCase(
         componentName
       )})
 }\n`

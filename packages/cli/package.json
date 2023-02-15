@@ -22,7 +22,7 @@
   "scripts": {
     "dev": "esbuild --bundle ./src/bin.ts --format=cjs --platform=node --outfile=./lib/bin.js --external:esbuild --minify-whitespace --watch",
     "build": "pnpm generate:theme && node --max-old-space-size=4096 node_modules/vitepress/bin/vitepress.js build docs && cp public/* docs/.vitepress/dist/assets && cp docs/assets/* docs/.vitepress/dist/assets",
-    "build:lib": "pnpm --filter vue3-lcfeui predev -- prod && pnpm build:components && pnpm changelog && pnpm release",
+    "build:lib": "pnpm --filter @lanchenfe/lcfeui predev -- prod && pnpm build:components && pnpm changelog && pnpm release",
     "build:components": "node ./index.js build",
     "generate:theme": "node ./index.js generate:theme",
     "generate:dts": "node ./index.js generate:dts",

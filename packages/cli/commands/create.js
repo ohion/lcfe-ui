@@ -38,7 +38,7 @@ const {
 const {
   createComponentTemplate,
   createStyleTemplate,
-  createTypesTemplate,
+  // createTypesTemplate,
   createDirectiveTemplate,
   createServiceTemplate,
   createIndexTemplate,
@@ -73,7 +73,7 @@ async function createComponent(params = {}) {
 
   const componentTemplate = createComponentTemplate(_params);
   const styleTemplate = createStyleTemplate(_params);
-  const typesTemplate = createTypesTemplate(_params);
+  // const typesTemplate = createTypesTemplate(_params);
   const directiveTemplate = createDirectiveTemplate(_params);
   const serviceTemplate = createServiceTemplate(_params);
   const indexTemplate = createIndexTemplate(_params);
@@ -121,17 +121,17 @@ async function createComponent(params = {}) {
         )}`
       );
     }
-
-    if (hasComponent || hasService) {
-      writeFiles.push(
-        fs.writeFile(resolve(srcDir, `${typesName}.ts`), typesTemplate)
-      );
-    }
+    // 创建类型声明文件
+    // if (hasComponent || hasService) {
+    //   writeFiles.push(
+    //     fs.writeFile(resolve(srcDir, `${typesName}.ts`), typesTemplate)
+    //   );
+    // }
 
     if (hasComponent) {
       writeFiles.push(
         fs.writeFile(
-          resolve(srcDir, `${componentName}.tsx`),
+          resolve(srcDir, `${componentName}.vue`),
           componentTemplate
         ),
         fs.writeFile(resolve(srcDir, `${styleName}.scss`), styleTemplate)
